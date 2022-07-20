@@ -43,6 +43,36 @@ namespace DataStructures
             }
         }
 
+        public int FindValue(int value)
+        {
+            int index = -1;
+            int counter = 0;
+
+            var currentNode = Head;
+            if (currentNode.Next is null)
+            {
+                if (currentNode.Value == value)
+                {
+                    index = counter;
+                }
+            }
+            else
+            {
+                while (currentNode.Value != value)
+                {
+                    counter++;
+                    currentNode = currentNode.Next;
+                    //check value
+                    if (currentNode.Value == value)
+                    {
+                        index = counter;
+                    }
+                }
+            }
+
+            return index;
+        }
+
         public void DeleteNode(int index)
         {
             int counter = 0;
@@ -69,7 +99,7 @@ namespace DataStructures
             }
         }
 
-        public void InsertNode(int value)
+        public void InsertNode(int index, int value)
         {
             throw new NotImplementedException();
         }
