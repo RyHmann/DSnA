@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,29 +24,31 @@ namespace LeetCode
             Numbers = numbers;
         }
 
-
+        //O(N)
         public int[] TwoSumSolution(int[] nums, int target)
         {
             var answer = new int[2];
-
-            var intMap = new Dictionary<int, int>();
-
+            var hashMap = new Hashtable();
 
             for (int i = 0; i < nums.Length; i++)
             {
                 var currentInt = nums[i];
                 var targetInt = target - currentInt;
-                if (intMap.ContainsKey(targetInt))
+
+                if (hashMap.ContainsKey(targetInt))
                 {
-                    answer[0] = intMap[targetInt];
-                    answer[1] = intMap[targetInt];
+                    answer[0] = (int)hashMap[targetInt];
+                    answer[1] = i;
                     return answer;
                 }
-                intMap.Add(currentInt, i);
+                hashMap[currentInt] = i;
             }
             return answer;
         }
 
+        //There's a (I believe) O(Nlog(N)) solution implementing binary search => sort the array, then binary search the array for target int
+
+        //O(N^2)
         public int[] TwoSumNSquared(int[] nums, int target)
         {
             var answer = new int[2];

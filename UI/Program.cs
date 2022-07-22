@@ -2,9 +2,9 @@
 using LeetCode;
 
 
-int[] twoSumArgs = new int[] { 2,5,5,11 };
+int[] twoSumArgs = new int[] { 1,1,1,1,1,4,1,1,1,1,1,7,1,1,1,1,1 };
 var twoSum = new TwoSum(twoSumArgs);
-int target = 10;
+int target = 11;
 
 
 var twoSumSolution = twoSum.TwoSumNSquared(twoSumArgs, target);
